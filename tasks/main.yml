@@ -4,16 +4,16 @@
 #
 # Grab the cyhy-core code
 #
-- name: Create the /var/cyhy/core directory
+- name: Create the /var/local/cyhy/core directory
   file:
-    path: /var/cyhy/core
+    path: /var/local/cyhy/core
     state: directory
 
 - name: Download and untar the cyhy-core tarball
   unarchive:
     src: "https://api.github.com/repos/jsf9k/cyhy-core/tarball/develop?\
     access_token={{ github_oauth_token }}"
-    dest: /var/cyhy/core
+    dest: /var/local/cyhy/core
     remote_src: yes
     extra_opts:
       - "--strip-components=1"
@@ -23,4 +23,4 @@
 #
 - name: Install cyhy-core
   pip:
-    name: file:///var/cyhy/core
+    name: file:///var/local/cyhy/core
