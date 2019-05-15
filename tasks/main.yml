@@ -1,2 +1,26 @@
 ---
-# tasks file for skeleton
+# tasks file for cyhy_core
+
+#
+# Grab the cyhy-core code
+#
+- name: Create the /var/cyhy/core directory
+  file:
+    path: /var/cyhy/core
+    state: directory
+
+- name: Download and untar the cyhy-core tarball
+  unarchive:
+    src: "https://api.github.com/repos/jsf9k/cyhy-core/tarball/develop?\
+    access_token={{ github_oauth_token }}"
+    dest: /var/cyhy/core
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
+
+#
+# Install cyhy-core
+#
+- name: Install cyhy-core
+  pip:
+    name: file:///var/cyhy/core
