@@ -13,4 +13,6 @@ galaxy_info:
     - cyhy
     - core
 
-dependencies: []
+dependencies:
+  - src: https://github.com/cisagov/ansible-role-pip
+    name: pip
