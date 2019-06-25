@@ -7,31 +7,31 @@ services: docker
 
 env:
   global:
-    - AWS_DEFAULT_REGION=us-east-1
+    - AWS_DEFAULT_REGION="us-east-1"
     # AWS_ACCESS_KEY_ID
-    - secure: "H1A08xLRt0K5pK0YXNcc+V/cbe2tztA9250Tn0nYyLtyhx5uj2mRMkt\
-      C5gpnKmuG/1L2PiOz1rh/jYxcO2xrNHMD93hLZ+mJPclKtCCnrp6uuLaxymP3DNU\
-      3XcKSsQdtLvzyS/wOdqJamvffq3C4h4wNszgv+l0CnyiZKVCQvJeJ8PvKBVGaDYf\
-      IIjhpXd+PdgokMyLxH9I83efCA3m3Y//9gdEaSxHC7qxex/xIWHuKKBbpBhnHK4v\
-      2LuhdQMiYviv4UU9TDaY8tgBSpyEAlS51Jl+XxzEKOOzJ+UtG0m3QCx0cdkFKDOI\
-      L5C8Ah3jxoroaiUP0XDRosq78eT1hJWILnhJ/2/gnTOAceSpOSxeWydir2HM1R/1\
-      TQHAPm/tFnIEhhu4a/FHVHYOXlUfN9PZza0VTnxZI7PTUObMq+Tax0c+QFsuamK9\
-      37Y9D99mbJbfIE5EuZY7gMZ5Ht9VT362wf2rQAr6gSVMNgEjTyAxftXxC1kshX/4\
-      Q5ScNIVuy29fjjW8uM95PW067L9RR7xJqKNafXkY58ISaMO5VRgUEsy1Kg+jYZtW\
-      4jsVQbVXowP7aWX2h4j3Eco5CEXIXslCQB3h4gMikqRNP5lRL5S6xrR+C1T4jtFp\
-      zCasC3Fg3nvmDr/2Bt8uK7YzD4JaXC4szrAWO6yTRDdhoM9W83Lo="
+    - secure: "ApDabdwBDxP5Z5xQs4znymHAurWk9aaWoRhp5IvXNAaOYVFWDMVijLe\
+      J1iasCWCu2xr5o5Pm4vBOc/1gOrB0MkYEGl4eNEz0DfmJgmqgI8v+LmiVIWFO52n\
+      n+I+m8+M+3h3uwJRHHOGRttSm8HMskY1UVbjqWMXjAWI5JqC6oaUZWAMXFT9DMV3\
+      tOOvVzImq2teGKzzz43BjfvjuEv3OTq3dKuUFuNyZUQZcUX5AJ9b44LpLj+9wUUF\
+      daXmNEyzehx867YppiwnFAJuzggV3XRfXwjfUQrPOJ0yWtQYlZ1vSlDYygroNIsQ\
+      U//JMXtbnRQZuAIxS+PrHt7i+cDlYRkq4MTrQvfJVswDCOt1gaSKgk/jYOis5SG5\
+      FtErKnV4cBilDjeMqAMX1hL4ltvucb5mepn3SOCKkSu6iA4rY7tAWX3pmsu+Zlcm\
+      11iJVW8w0M/ZXRvIi4fwlZIRbUXJA4oqW68KXlZmNtRjchhkFxxbQLMUlX3AavtB\
+      x3FlCH4t5fhjMg6zdiNUcCRwrhT3gw8xMzRuop/oG3+ap3fpQ2OXlyVWT7H02Hw3\
+      HPivG82ynB3pJVbEhRjyNxjL5wlYGBaV+xiVm2+/yCAIX/kD91UKvoasSkUY4Lch\
+      WkvKFdOWlsm0aZAnHGm/ZWAnHarC9wc1ZWAtQfbUlMqF9ULEsgkk="
     # AWS_SECRET_ACCESS_KEY
-    - secure: "Ct0cT7q0F9LGluNCWEXfOJW+0cUby5yP2V2Wnd4ZeoMpZXK/1//doaN\
-      66mSPlJPXGERyueqL1PGXhei9lVVlGabPs4C0Z8W6bJ8whGMmo2EGXIAleOahJOb\
-      mQzG8vcBMWQ9PS9eGROTA+4isiTfW4j2WrXLKAkzpIT+oJaGyGpa0PpZtcGQEmSk\
-      YQnvnuN4z4zF/HsW4tFUHWbwBZ+Taern4M/nAAp4uNRb7RQYkPVOcsQIuPSYI8sG\
-      VCznuZ57/IaLz0b9YQOQYZy/+Y0r+jduzwZb6FBepbiYhnh8KeHPC17f5DWJ8RyH\
-      qYPJTQxllF5fuCbnp2VnnnP9I1uOZSVHGe/TlpzzYrqJh6LBPmSORqDftlQL3TJC\
-      mSunvU5RqzoCUNP1wInsj2xlEwRyhsal8qWQyojqFniLjAyT2I4fbAaU2a1ZxCTc\
-      csCPQUUyklhWDKL4lzNlc63eTLFlWQfn/P5Gu49gV0Q0QteW9ASq0BiMgYiPy+nU\
-      qfmsYKjqv+MeEquQGllklhF0/xl/ERunYLnVukBiuvLd/v+A8hiJpTm7WaDZClLj\
-      9LJ0Fh6fHsc3ZVji9ig4we/EZvJCvVS9VyIV5DOire3KRyC7TZXnm6Fe1anEUuUH\
-      9+iMAiyj4n06amzK1hvb8ZFqaUf9jTI8fZbZirLaxNWpJzUt4Zr4="
+    - secure: "H+NA7KvV6iU9sRWYyp5VnDW21N7WJIcya7Y+yq5OnX8WLi3PewgWNHB\
+      84sVHdMRTmPqerbOZkQtiwsOWfYH2CIwBohEX+t9hFDW0o8IU1oqW5LT9gVIMw+w\
+      rnKFJIllzntoC+lO0kcf3TIs+A3aGitWqvoB5v92vTZsDeg088nTICfhxU1bvmhr\
+      8MLOFXBClF88J24Lc0MI7LxNXwdlqpcLtLcYo0/s2+Q4cTNR/RdBVj2G4DGI76zR\
+      A9ZWnuRU2ooV35XB9JoWwiqR/mw6ahy0SDHWUhzU8Samn0VdwTQ5Og9U+HPl1qNL\
+      079nk5D0YDi3zOxix14w7X7rV4SRGYUxIIsyX5Y0fxMZKQJcmWCRD9o5HP/XyO/r\
+      jes3SkhSoaUzG+xDuXbNzCF8Q047HB7UvPAghxOxPu876aqBj/O6WouQ+7OOYki6\
+      Ex4dyv6bkVdfHPKOhE1GMcW+WKEc2xnvDD2FdR0mVWWKnAAbTieXMwEE7qTMBM+R\
+      taah2R9XrXyIChlunabbJvcNktNNZDMnzTVtxKrMG5YXr3vstlC5H0SgLF4n4CTV\
+      6ycDYPTP2sfHFnzHfXkuayTF8dfS1CEgkjxJVUrOJLQKtDaeJrlrG8RBUx7/1Gho\
+      Q8WjJlM3/omtY9rjDy8oIghlRpaJRS2VU+TKyUqOix59uUt8i7BI="
 
 # Install terraform and terraform-doc
 before_install:
