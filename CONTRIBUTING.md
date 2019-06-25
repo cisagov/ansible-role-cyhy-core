@@ -51,7 +51,7 @@ project.
 On the Mac, installation is as simple as `brew install pyenv
 pyenv-virtualenv` and adding this to your profile:
 
-```console
+```bash
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
