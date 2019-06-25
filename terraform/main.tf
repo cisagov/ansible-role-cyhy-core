@@ -3,7 +3,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Configure the example module.
 module "iam_user" {
   source = "github.com/cisagov/aws-parameter-store-read-only-iam-user-tf-module"
 
