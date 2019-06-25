@@ -51,7 +51,7 @@ project.
 On the Mac, installation is as simple as `brew install pyenv
 pyenv-virtualenv` and adding this to your profile:
 
-```bash
+```console
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
@@ -77,7 +77,7 @@ Once `pyenv` and `pyenv-virtualenv` are installed on your system, you
 can create and configure the Python virtual environment with these
 commands:
 
-```bash
+```console
 cd ansible-role-cyhy-core
 pyenv virtualenv <python_version_to_use> ansible-role-cyhy-core
 pyenv local ansible-role-cyhy-core
