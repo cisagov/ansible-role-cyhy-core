@@ -28,6 +28,11 @@
 #
 # Download and extract GeoIP database.
 #
+- debug:
+  msg:
+    - "Retrieved key {{ lookup('aws_ssm', '/cyhy/core/geoip/license_key') }}"
+    - "Stored key is {{ geoip_license_key}}"
+
 - name: Get GeoIP database and check (md5)
   get_url:
     url: "https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
