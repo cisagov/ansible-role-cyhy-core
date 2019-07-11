@@ -33,6 +33,7 @@
     msg:
       - "Retrieved key {{ lookup('aws_ssm', '/cyhy/core/geoip/license_key') }}"
       - "Stored key is {{ geoip_license_key}}"
+      - "Test alternate parameter {{ lookup('aws_ssm', '/cyhy/dev/users') }}"
 
 - name: Get GeoIP database and check (md5)
   get_url:
