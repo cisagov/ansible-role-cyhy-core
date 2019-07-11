@@ -24,3 +24,20 @@
 - name: Install cyhy-core
   pip:
     name: file:///var/local/cyhy/core
+
+#
+# Download and extract GeoIP database.
+#
+- name: Get GeoIP database and check (md5)
+  get_url:
+    url: "https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
+    dest: /tmp/geoip/GeoIP2-City.tar.gz
+    checksum: "md5:https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz.md5"
+
+- name: Extract GeoIP database
+  unarchive:
+    src: /tmp/geoip/GeoIP2-City.tar.gz
+    dest: /usr/local/share/GeoIP/
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
