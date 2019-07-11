@@ -35,7 +35,7 @@
     dest: /tmp/geoip/GeoIP2-City.tar.gz
     checksum: "md5:{{ lookup('url', 'https://download.maxmind.com/app/\
     geoip_download?edition_id=GeoIP2-City&license_key=\
-    {{ geoip_license_key }}&suffix=tar.gz.md5' }}"
+    {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
 
 - name: Extract GeoIP database
   unarchive:
