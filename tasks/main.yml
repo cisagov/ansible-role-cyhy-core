@@ -28,6 +28,16 @@
 #
 # Download and extract GeoIP database.
 #
+- name: Create the /temp/geoip directory
+  file:
+    path: /tmp/geoip
+    state: directory
+
+- name: Create the /usr/local/share/GeoIP/ directory
+  file:
+    path: /usr/local/share/GeoIP/
+    state: directory
+
 - name: Get GeoIP database and check (md5)
   get_url:
     url: "https://download.maxmind.com/app/geoip_download?\
