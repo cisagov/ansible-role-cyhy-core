@@ -28,20 +28,14 @@
 #
 # Download and extract GeoIP database.
 #
-- name: Debug paramater store retrieval
-  debug:
-    msg:
-      - "Retrieved key {{ lookup('aws_ssm', '/cyhy/core/geoip/license_key') }}"
-      - "Stored key is {{ geoip_license_key}}"
-      - "Test alternate parameter {{ lookup('aws_ssm', '/cyhy/dev/users') }}"
-
 - name: Get GeoIP database and check (md5)
   get_url:
     url: "https://download.maxmind.com/app/geoip_download?\
     edition_id=GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
     dest: /tmp/geoip/GeoIP2-City.tar.gz
-    checksum: "md5:https://download.maxmind.com/app/geoip_download?edition_id=\
-    GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz.md5"
+    checksum: "md5:{{ lookup('url', 'https://download.maxmind.com/app/\
+    geoip_download?edition_id=GeoIP2-City&license_key=\
+    {{ geoip_license_key }}&suffix=tar.gz.md5' }}"
 
 - name: Extract GeoIP database
   unarchive:
