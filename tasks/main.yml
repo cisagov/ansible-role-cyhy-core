@@ -55,7 +55,13 @@
     extra_opts:
       - "--strip-components=1"
 
-- name: Remove downloaded tar.gz file
+- name: Check if the downloaded tar.gz file exists
+  stat:
+    path: /tmp/geoip/GeoIP2-City.tar.gz
+  register: temp_file
+
+- name: Delete the tar.gz file if it exists
   file:
     path: /tmp/geoip/GeoIP2-City.tar.gz
     state: absent
+  when: temp_file.stat.exists == True
