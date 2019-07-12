@@ -64,4 +64,4 @@
   file:
     path: /tmp/geoip/GeoIP2-City.tar.gz
     state: absent
-  when: temp_file.stat.exists == True
+  when: temp_file.stat.exists
