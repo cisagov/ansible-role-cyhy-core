@@ -47,6 +47,11 @@
     geoip_download?edition_id=GeoIP2-City&license_key=\
     {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
 
+- name: Check if the downloaded tar.gz file exists
+  stat:
+    path: /tmp/geoip/GeoIP2-City.tar.gz
+  register: temp_file
+
 - name: Extract GeoIP database
   unarchive:
     src: /tmp/geoip/GeoIP2-City.tar.gz
@@ -54,11 +59,7 @@
     remote_src: yes
     extra_opts:
       - "--strip-components=1"
-
-- name: Check if the downloaded tar.gz file exists
-  stat:
-    path: /tmp/geoip/GeoIP2-City.tar.gz
-  register: temp_file
+  when: temp_file.stat.exists
 
 - name: Delete the tar.gz file if it exists
   file:
