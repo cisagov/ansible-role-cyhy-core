@@ -28,41 +28,39 @@
 #
 # Download and extract GeoIP database.
 #
-- name: Create the /temp/geoip directory
-  file:
-    path: /tmp/geoip
-    state: directory
-
 - name: Create the /usr/local/share/GeoIP/ directory
   file:
     path: /usr/local/share/GeoIP/
     state: directory
 
-- name: Get GeoIP database and check (md5)
-  get_url:
-    url: "https://download.maxmind.com/app/geoip_download?\
-    edition_id=GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
-    dest: /tmp/geoip/GeoIP2-City.tar.gz
-    checksum: "md5:{{ lookup('url', 'https://download.maxmind.com/app/\
-    geoip_download?edition_id=GeoIP2-City&license_key=\
-    {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
-
 - name: Check if the downloaded tar.gz file exists
   stat:
-    path: /tmp/geoip/GeoIP2-City.tar.gz
+    path: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+    checksum_algorithm: md5
   register: temp_file
 
-- name: Extract GeoIP database
-  unarchive:
-    src: /tmp/geoip/GeoIP2-City.tar.gz
-    dest: /usr/local/share/GeoIP/
-    remote_src: yes
-    extra_opts:
-      - "--strip-components=1"
-  when: temp_file.stat.exists
+- name: Check to see if a new version is available
+  set_fact:
+    get_update: "{{ True if (not temp_file.stat.exists or \
+      temp_file.stat.checksum != lookup('url', 'https://download.maxmind.com/\
+      app/geoip_download?edition_id=GeoIP2-City&license_key=\
+      {{ geoip_license_key }}&suffix=tar.gz.md5')) else False }}"
 
-- name: Delete the tar.gz file if it exists
-  file:
-    path: /tmp/geoip/GeoIP2-City.tar.gz
-    state: absent
-  when: temp_file.stat.exists
+- name: Download, verify, and extract the latest database version
+  block:
+    - name: Get GeoIP database and check (md5)
+      get_url:
+        url: "https://download.maxmind.com/app/geoip_download?edition_id=\
+        GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
+        dest: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        checksum: "md5:{{ lookup('url', 'https://download.maxmind.com/app/\
+        geoip_download?edition_id=GeoIP2-City&license_key=\
+        {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
+    - name: Extract GeoIP database
+      unarchive:
+        src: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        dest: /usr/local/share/GeoIP/
+        remote_src: yes
+        extra_opts:
+          - "--strip-components=1"
+  when: get_update
