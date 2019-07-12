@@ -28,6 +28,11 @@
 #
 # Download and extract GeoIP database.
 #
+- name: Set a fact for the remote file checksum url
+  set_fact:
+    checksum_url: "https://download.maxmind.com/app/geoip_download?edition_id=\
+    GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz.md5"
+
 - name: Create the /usr/local/share/GeoIP/ directory
   file:
     path: /usr/local/share/GeoIP/
@@ -37,14 +42,12 @@
   stat:
     path: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
     checksum_algorithm: md5
-  register: temp_file
+  register: tarball
 
 - name: Check to see if a new version is available
   set_fact:
-    get_update: "{{ True if (not temp_file.stat.exists or \
-      temp_file.stat.checksum != lookup('url', 'https://download.maxmind.com/\
-      app/geoip_download?edition_id=GeoIP2-City&license_key=\
-      {{ geoip_license_key }}&suffix=tar.gz.md5')) else False }}"
+    get_update: "{{ True if (not tarball.stat.exists or \
+    tarball.stat.checksum != lookup('url', '{{ checksum_url }}')) else False }}"
 
 - name: Download, verify, and extract the latest database version
   block:
@@ -53,9 +56,7 @@
         url: "https://download.maxmind.com/app/geoip_download?edition_id=\
         GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
         dest: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
-        checksum: "md5:{{ lookup('url', 'https://download.maxmind.com/app/\
-        geoip_download?edition_id=GeoIP2-City&license_key=\
-        {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
+        checksum: "md5:{{ lookup('url', '{{ checksum_url }}') }}"
     - name: Extract GeoIP database
       unarchive:
         src: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
