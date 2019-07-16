@@ -3,3 +3,6 @@
 
 # The GitHub OAUTH token
 github_oauth_token: "{{ lookup('aws_ssm', '/github/oauth_token') }}"
+
+# GeoIP License Key
+geoip_license_key: "{{ lookup('aws_ssm', '/cyhy/core/geoip/license_key') }}"

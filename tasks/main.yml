@@ -24,3 +24,45 @@
 - name: Install cyhy-core
   pip:
     name: file:///var/local/cyhy/core
+
+#
+# Download and extract GeoIP database.
+#
+- name: Retrieve the checksum of the latest remote version of the database
+  set_fact:
+    latest_version_checksum: "{{ lookup('url', 'https://download.maxmind.com/\
+    app/geoip_download?edition_id=GeoIP2-City&license_key=\
+    {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
+
+- name: Create the /usr/local/share/GeoIP/ directory
+  file:
+    path: /usr/local/share/GeoIP/
+    state: directory
+
+- name: Check if the downloaded tar.gz file exists
+  stat:
+    path: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+    checksum_algorithm: md5
+  register: tarball
+
+- name: Check to see if the remote version is different from the local version
+  set_fact:
+    get_update: "{{ True if (not tarball.stat.exists or \
+    tarball.stat.checksum != latest_version_checksum) else False }}"
+
+- name: Download, verify, and extract the latest database version if needed
+  block:
+    - name: Get GeoIP database and check (md5)
+      get_url:
+        url: "https://download.maxmind.com/app/geoip_download?edition_id=\
+        GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
+        dest: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        checksum: "md5:{{ latest_version_checksum }}"
+    - name: Extract GeoIP database
+      unarchive:
+        src: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        dest: /usr/local/share/GeoIP/
+        remote_src: yes
+        extra_opts:
+          - "--strip-components=1"
+  when: get_update
