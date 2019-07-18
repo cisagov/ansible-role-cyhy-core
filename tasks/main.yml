@@ -26,13 +26,34 @@
     name: file:///var/local/cyhy/core
 
 #
-# Download and extract GeoIP database.
+# Download and extract the MaxMind GeoIP database.
+# If no license is found we will fallback on the license free version also
+# offered by MaxMind.
 #
+- name: Set the local database file to use
+  set_fact:
+    local_db_file: "{{ (geoip_license_key) | \
+    ternary('GeoIP2-City.tar.gz', 'GeoLite2-City.tar.gz') }}"
+
+- name: Set the remote database URL
+  set_fact:
+    remote_db_url: "{{ (geoip_license_key) | ternary(\
+    'https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-City\
+    &license_key=' + geoip_license_key + '&suffix=tar.gz', \
+    'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz'\
+    ) }}"
+
+- name: Set the remote checksum URL
+  set_fact:
+    remote_checksum_url: "{{ (geoip_license_key) | ternary(\
+    'https://download.maxmind.com/app/geoip_download?edition_id=GeoIP2-City\
+    &license_key=' + geoip_license_key + '&suffix=tar.gz.md5',\
+    'https://geolite.maxmind.com/download/geoip/database/\
+    GeoLite2-City.tar.gz.md5' ) }}"
+
 - name: Retrieve the checksum of the latest remote version of the database
   set_fact:
-    latest_version_checksum: "{{ lookup('url', 'https://download.maxmind.com/\
-    app/geoip_download?edition_id=GeoIP2-City&license_key=\
-    {{ geoip_license_key }}&suffix=tar.gz.md5') }}"
+    latest_version_checksum: "{{ lookup('url', '{{ remote_checksum_url }}') }}"
 
 - name: Create the /usr/local/share/GeoIP/ directory
   file:
@@ -41,7 +62,7 @@
 
 - name: Check if the downloaded tar.gz file exists
   stat:
-    path: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+    path: "/usr/local/share/GeoIP/{{ local_db_file }}"
     checksum_algorithm: md5
   register: tarball
 
@@ -54,13 +75,12 @@
   block:
     - name: Get GeoIP database and check (md5)
       get_url:
-        url: "https://download.maxmind.com/app/geoip_download?edition_id=\
-        GeoIP2-City&license_key={{ geoip_license_key }}&suffix=tar.gz"
-        dest: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        url: "{{ remote_db_url }}"
+        dest: "/usr/local/share/GeoIP/{{ local_db_file }}"
         checksum: "md5:{{ latest_version_checksum }}"
     - name: Extract GeoIP database
       unarchive:
-        src: /usr/local/share/GeoIP/GeoIP2-City.tar.gz
+        src: "/usr/local/share/GeoIP/{{ local_db_file }}"
         dest: /usr/local/share/GeoIP/
         remote_src: yes
         extra_opts:
