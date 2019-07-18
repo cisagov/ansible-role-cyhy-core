@@ -26,7 +26,9 @@
     name: file:///var/local/cyhy/core
 
 #
-# Download and extract GeoIP database.
+# Download and extract the MaxMind GeoIP database.
+# If no license is found we will fallback on the license free version also
+# offered by MaxMind.
 #
 - name: Set the local database file to use
   set_fact:
