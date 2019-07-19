@@ -51,12 +51,6 @@
   set_fact:
     latest_version_checksum: "{{ lookup('url', '{{ remote_checksum_url }}') }}"
 
-- debug:
-    msg:
-      - "{{ remote_db_url }}"
-      - "{{ remote_checksum_url }}"
-      - "{{ latest_version_checksum }}"
-
 - name: Create the /usr/local/share/GeoIP/ directory
   file:
     path: "{{ geoip_path }}"
