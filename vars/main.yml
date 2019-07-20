@@ -4,5 +4,20 @@
 # The GitHub OAUTH token
 github_oauth_token: "{{ lookup('aws_ssm', '/github/oauth_token') }}"
 
+# Directory to store GeoIP files
+geoip_path: "/usr/local/share/GeoIP/"
+
 # MaxMind GeoIP license key if available
 geoip_license_key: "{{ lookup('aws_ssm', '/cyhy/core/geoip/license_key') }}"
+
+# Variables for a present license
+geoip_license_base_url: "https://download.maxmind.com/app/geoip_download?"
+geoip_license_file_url: "edition_id=GeoIP2-City&suffix=tar.gz&license_key="
+geoip_license_chksum_url:
+  "edition_id=GeoIP2-City&suffix=tar.gz.md5&license_key="
+
+# Variables for an absent license
+geoip_no_license_base_url:
+  "https://geolite.maxmind.com/download/geoip/database/"
+geoip_no_license_file_url: "GeoLite2-City.tar.gz"
+geoip_no_license_chksum_url: "GeoLite2-City.tar.gz.md5"
