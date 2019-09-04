@@ -64,7 +64,7 @@
 
 - name: Check to see if the remote version is different from the local version
   set_fact:
-    get_update: {{ True if (not tarball.stat.exists or \
+    get_update: {{ True if (not tarball.stat.exists or
     tarball.stat.checksum != latest_version_checksum) else False }}
 
 - name: Download, verify, and extract the latest database version if needed
