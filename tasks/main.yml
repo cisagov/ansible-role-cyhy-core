@@ -11,7 +11,7 @@
 
 - name: Download and untar the cyhy-core tarball
   unarchive:
-    src: "https://api.github.com/repos/jsf9k/cyhy-core/tarball/develop?\
+    src: "https://api.github.com/repos/jsf9k/cyhy-core/tarball/py3_migration?\
     access_token={{ github_oauth_token }}"
     dest: /var/local/cyhy/core
     remote_src: yes
@@ -23,6 +23,7 @@
 #
 - name: Install cyhy-core
   pip:
+    executable: pip3
     name: file:///var/local/cyhy/core
 
 #
