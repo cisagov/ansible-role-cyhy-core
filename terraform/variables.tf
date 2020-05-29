@@ -16,6 +16,6 @@ variable "tags" {
 
   default = {
     Team        = "VM Fusion - Development"
-    Application = "ansible-role-kali testing"
+    Application = "ansible-role-cyhy-core testing"
   }
 }
