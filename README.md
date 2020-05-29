@@ -9,15 +9,19 @@ An Ansible role for installing
 
 ## Requirements ##
 
-None.
+* The [boto3](https://pypi.org/project/boto3/) Python package for performing
+  `lookup()`s of AWS SSM Parameter Store keys.
 
 ## Role Variables ##
 
-None.
+* `github_oauth_token` - The GitHub personal access token to use when accessing
+  the `jsf9k/cyhy-core` private repository.
+* `maxmind_license_key` - The MaxMind license key that provides access to a
+  GeoIP2 database subscription.
 
 ## Dependencies ##
 
-None.
+* [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
 
 ## Example Playbook ##
 
