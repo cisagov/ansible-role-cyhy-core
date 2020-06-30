@@ -5,7 +5,7 @@
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cyhy-core.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-core/context:python)
 
 An Ansible role for installing
-[jsf9k/cyhy-core](https://github.com/jsf9k/cyhy-core).
+[cyhy-core](https://github.com/cisagov/cyhy-core).
 
 ## Requirements ##
 
@@ -14,8 +14,6 @@ An Ansible role for installing
 
 ## Role Variables ##
 
-* `github_oauth_token` - The GitHub personal access token to use when accessing
-  the `jsf9k/cyhy-core` private repository.
 * `maxmind_license_key` - The MaxMind license key that provides access to a
   GeoIP2 database subscription.
 
