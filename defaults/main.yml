@@ -1,7 +1,4 @@
 ---
-# The GitHub OAUTH token
-github_oauth_token: "{{ lookup('aws_ssm', '/github/oauth_token') }}"
-
 # Directory to store GeoIP files
 geoip_local_path: "/usr/local/share/GeoIP/"
 geoip_local_file: "GeoIP2-City.tar.gz"
