@@ -63,7 +63,7 @@
 
     - name: Retrieve the checksum of the latest remote version of the database
       set_fact:
-        latest_version_checksum: "{{ lookup('url', '{{ remote_checksum_url }}') }}"
+        latest_version_checksum: "{{ lookup('url', remote_checksum_url) }}"
 
     - name: Create the /usr/local/share/GeoIP/ directory
       file:
