@@ -11,7 +11,7 @@
 
 - name: Download and untar the cyhy-core tarball
   unarchive:
-    src: "https://api.github.com/repos/cisagov/cyhy-core/tarball/develop"
+    src: "https://api.github.com/repos/cisagov/cyhy-core/tarball/bugfix/pin_maxminddb"
     dest: /var/local/cyhy/core
     remote_src: yes
     extra_opts:
