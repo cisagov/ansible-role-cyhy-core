@@ -4,7 +4,8 @@ galaxy_info:
   description: Install cyhy-core.
   company: CISA Cyber Assessments
   galaxy_tags:
-    - skeleton
+    - cyhy
+    - core
   license: CC0
   min_ansible_version: 2.0
   platforms:
@@ -21,31 +22,7 @@ galaxy_info:
         # Kali linux isn't an option here, but it is based on
         # Debian Testing:
         # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
-<<<<<<< HEAD
-        # - bullseye
-    # - name: Fedora
-    #   versions:
-    #     - 32
-    #     - 33
-    # - name: Ubuntu
-    #   versions:
-    #     - bionic
-    #     - xenial
-  galaxy_tags:
-    - cyhy
-    - core
-=======
-        - bullseye
-    - name: Fedora
-      versions:
-        - 32
-        - 33
-    - name: Ubuntu
-      versions:
-        - bionic
-        - xenial
-  role_name: skeleton
->>>>>>> 05c10e6aff9ff1f827e3b4b10511f9b28fa05b71
+  role_name: cyhy_core
 
 dependencies:
   - src: https://github.com/cisagov/ansible-role-pip
