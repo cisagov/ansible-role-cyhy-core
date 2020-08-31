@@ -6,11 +6,15 @@
 #
 - name: Create the /var/local/cyhy/core directory
   file:
+    mode: 0755
     path: /var/local/cyhy/core
     state: directory
 
 - name: Download and untar the cyhy-core tarball
-  unarchive:
+  # ansible-lint E208 gives an error if we don't specify the mode,
+  # but we definitely don't want to do that here since it will
+  # override the permissions on the files in the archive.
+  unarchive: # noqa 208
     src: "https://api.github.com/repos/cisagov/cyhy-core/tarball/develop"
     dest: /var/local/cyhy/core
     remote_src: yes
@@ -67,6 +71,7 @@
 
     - name: Create the /usr/local/share/GeoIP/ directory
       file:
+        mode: 0755
         path: "{{ geoip_local_path }}"
         state: directory
 
