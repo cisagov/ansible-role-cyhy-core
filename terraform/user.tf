@@ -1,5 +1,5 @@
 # Create the test user
-module "iam_user" {
+module "user" {
   source = "github.com/cisagov/molecule-iam-user-tf-module"
 
   providers = {
