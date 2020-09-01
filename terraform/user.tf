@@ -1,3 +1,4 @@
+# Create the test user
 module "iam_user" {
   source = "github.com/cisagov/molecule-iam-user-tf-module"
 
@@ -11,5 +12,6 @@ module "iam_user" {
 
   entity         = "ansible-role-cyhy-core"
   ssm_parameters = ["/cyhy/core/geoip/license_key"]
-  tags           = var.tags
+
+  tags = var.tags
 }
