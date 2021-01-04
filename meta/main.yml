@@ -32,7 +32,5 @@ galaxy_info:
 dependencies:
   - src: https://github.com/cisagov/ansible-role-geoip2
     name: geoip2
-    vars:
-        maxmind_license_key: "{{ maxmind_license_key }}"
   - src: https://github.com/cisagov/ansible-role-pip
     name: pip
