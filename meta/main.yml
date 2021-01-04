@@ -30,5 +30,9 @@ galaxy_info:
   role_name: cyhy_core
 
 dependencies:
+  - src: https://github.com/cisagov/ansible-role-geoip2
+    name: geoip2
+    vars:
+        maxmind_license_key: "{{ maxmind_license_key }}"
   - src: https://github.com/cisagov/ansible-role-pip
     name: pip

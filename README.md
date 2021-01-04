@@ -65,6 +65,7 @@ the repository's settings.
 
 ## Dependencies ##
 
+* [cisagov/ansible-role-geoip2](https://github.com/cisagov/ansible-role-geoip2)
 * [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
 
 ## Example Playbook ##
