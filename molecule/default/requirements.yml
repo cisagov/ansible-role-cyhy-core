@@ -1,4 +1,6 @@
 ---
+- src: https://github.com/cisagov/ansible-role-geoip2
+  name: geoip2
 - src: https://github.com/cisagov/ansible-role-pip
   name: pip
 - src: https://github.com/cisagov/ansible-role-python
