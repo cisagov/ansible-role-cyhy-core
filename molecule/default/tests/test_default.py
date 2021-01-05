@@ -18,7 +18,14 @@ def test_packages(host, pkg):
     assert pkg in host.pip_package.get_packages()
 
 
-@pytest.mark.parametrize("f", ["/var/local/cyhy/core", "/usr/local/share/GeoIP"])
+@pytest.mark.parametrize(
+    "f",
+    [
+        "/var/local/cyhy/core",
+        "/usr/local/share/GeoIP",
+        "/usr/local/share/GeoIP/GeoIP2-City.tar.gz",
+    ],
+)
 def test_files(host, f):
     """Test that the expected files and directories are present."""
     assert host.file(f).exists
