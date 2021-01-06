@@ -1,29 +1,26 @@
 ---
 # tasks file for cyhy_core
 
-#
-# Grab the cyhy-core code
-#
-- name: Create the /var/local/cyhy/core directory
-  file:
-    mode: 0755
-    path: /var/local/cyhy/core
-    state: directory
+- name: Install system versions of the Python packages that cyhy-core needs
+  package:
+    name:
+      # PyCrypto
+      - python-crypto
+      - python-dateutil
+      - python-docopt
+      - python-geoip2
+      - python-maxminddb
+      - python-netaddr
+      - python-pandas
+      - python-progressbar
+      # The version available for Debian Stretch is 3.4.0, and the cyhy-core
+      # package currently has a requirement of < 3. When the cyhy-core package
+      # supports a more recent version of PyMongo, this should be enabled.
+      # - python-pymongo
+      - python-six
+      # PyYAML
+      - python-yaml
 
-- name: Download and untar the cyhy-core tarball
-  # ansible-lint E208 gives an error if we don't specify the mode,
-  # but we definitely don't want to do that here since it will
-  # override the permissions on the files in the archive.
-  unarchive: # noqa 208
-    src: "https://api.github.com/repos/cisagov/cyhy-core/tarball/develop"
-    dest: /var/local/cyhy/core
-    remote_src: yes
-    extra_opts:
-      - "--strip-components=1"
-
-#
-# Install cyhy-core
-#
-- name: Install cyhy-core
+- name: Install the cyhy-core package
   pip:
-    name: file:///var/local/cyhy/core
+    name: https://api.github.com/repos/cisagov/cyhy-core/tarball/develop
