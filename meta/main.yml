@@ -23,10 +23,6 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
-        # - buster
-        # Kali linux isn't an option here, but it is based on
-        # Debian Testing:
-        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
   role_name: cyhy_core
 
 dependencies:
