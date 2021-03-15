@@ -3,3 +3,5 @@
   hosts: all
   roles:
     - role: ansible-role-cyhy-core
+      vars:
+        maxmind_license_key: "{{ lookup('aws_ssm', '/cyhy/core/geoip/license_key', region='us-east-1') }}"
