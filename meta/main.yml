@@ -27,5 +27,7 @@ galaxy_info:
   role_name: cyhy_core
 
 dependencies:
+  - src: https://github.com/cisagov/ansible-role-geoip2
+    name: geoip2
   - src: https://github.com/cisagov/ansible-role-pip
     name: pip
