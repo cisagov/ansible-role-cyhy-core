@@ -55,17 +55,17 @@ the repository's settings.
 
 ## Requirements ##
 
-* The [boto3](https://pypi.org/project/boto3/) Python package for performing
+- The [boto3](https://pypi.org/project/boto3/) Python package for performing
   `lookup()`s of AWS SSM Parameter Store keys.
 
 ## Role Variables ##
 
-* `maxmind_license_key` - The MaxMind license key that provides access to a
+- `maxmind_license_key` - The MaxMind license key that provides access to a
   GeoIP2 database subscription.
 
 ## Dependencies ##
 
-* [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
+- [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
 
 ## Example Playbook ##
 
