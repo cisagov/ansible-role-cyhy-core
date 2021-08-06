@@ -19,7 +19,7 @@ local machine.
 Before the build user can be created, the following profile must exist in
 your AWS credentials file:
 
-* `cool-terraform-backend`
+- `cool-terraform-backend`
 
 The easiest way to set up that profile is to use our
 [`aws-profile-sync`](https://github.com/cisagov/aws-profile-sync)
@@ -55,17 +55,17 @@ the repository's settings.
 
 ## Requirements ##
 
-* The [boto3](https://pypi.org/project/boto3/) Python package for performing
+- The [boto3](https://pypi.org/project/boto3/) Python package for performing
   `lookup()`s of AWS SSM Parameter Store keys.
 
 ## Role Variables ##
 
-* `maxmind_license_key` - The MaxMind license key that provides access to a
+- `maxmind_license_key` - The MaxMind license key that provides access to a
   GeoIP2 database subscription.
 
 ## Dependencies ##
 
-* [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
+- [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
 
 ## Example Playbook ##
 
