@@ -63,15 +63,10 @@ the repository's settings.
 
 ## Role Variables ##
 
-- `maxmind_license_key` - The MaxMind license key that provides access to a
-  GeoIP2 database subscription.
-
-<!--
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| optional_variable | Describe its purpose. | `default_value` | No |
-| required_variable | Describe its purpose. | n/a | Yes |
--->
+| maxmind_license_key | The MaxMind license key that provides access to a
+  GeoIP2 database subscription. | n/a | Yes |
 
 ## Dependencies ##
 
