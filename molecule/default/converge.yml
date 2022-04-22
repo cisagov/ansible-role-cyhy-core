@@ -5,3 +5,5 @@
     - name: Include ansible-role-cyhy-core
       ansible.builtin.include_role:
         name: ansible-role-cyhy-core
+      vars:
+        maxmind_license_key: "{{ lookup('aws_ssm', '/cyhy/core/geoip/license_key', region='us-east-1') }}"
