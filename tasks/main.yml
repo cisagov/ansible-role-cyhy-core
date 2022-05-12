@@ -23,4 +23,4 @@
 
 - name: Install the cyhy-core package
   ansible.builtin.pip:
-    name: https://api.github.com/repos/cisagov/cyhy-core/tarball/develop
+    name: https://api.github.com/repos/cisagov/cyhy-core/tarball/testing/cvssv3
