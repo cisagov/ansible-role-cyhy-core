@@ -15,4 +15,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 @pytest.mark.parametrize("pkg", ["cyhy-core"])
 def test_packages(host, pkg):
     """Test that the pip packages were installed."""
-    assert pkg in host.pip_package.get_packages()
+    assert pkg in host.pip_package.get_packages(pip_path="/usr/bin/pip2")
