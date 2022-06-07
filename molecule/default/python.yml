@@ -4,6 +4,7 @@
   become: yes
   become_method: sudo
   roles:
-    - pip
-    - python
-    - remove_python2
+    - install_pip2: true
+      role: pip
+    - install_python2: true
+      role: python
