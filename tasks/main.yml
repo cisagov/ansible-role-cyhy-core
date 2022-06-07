@@ -13,9 +13,9 @@
       - python-netaddr
       - python-pandas
       - python-progressbar
-      # The version available for Debian Stretch is 3.4.0, and the cyhy-core
-      # package currently has a requirement of < 3. When the cyhy-core package
-      # supports a more recent version of PyMongo, this should be enabled.
+      # The versions available are >= 3 but the cyhy-core package currently has
+      # a requirement of < 3. When the cyhy-core package supports a more recent
+      # version of PyMongo, this should be enabled.
       # - python-pymongo
       - python-six
       # PyYAML

@@ -15,15 +15,15 @@ galaxy_info:
   min_ansible_version: 2.10
   namespace: cisagov
   platforms:
-    # cyhy-core is still Python 2 only and so the only platform we now support for
-    # Python 2 is Debian Stretch. As a result, all other platforms are disabled
-    # until the CyHy codebase has finished migration to Python 3.
-    # - name: Amazon
-    #   versions:
-    #     - 2
+    # cyhy-core is still Python 2 and with distributions ending support for
+    # Python 2 we can only support a limited number of platforms.
     - name: Debian
       versions:
         - stretch
+        - buster
+    - name: Ubuntu
+      versions:
+        - bionic
   role_name: cyhy_core
 
 dependencies:
