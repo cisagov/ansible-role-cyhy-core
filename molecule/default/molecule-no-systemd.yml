@@ -16,9 +16,8 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  # cyhy-core is still Python 2 only and so the only platform we now support for
-  # Python 2 is Debian Stretch. As a result, all other platforms are disabled
-  # until the CyHy codebase has finished migration to Python 3.
+  # cyhy-core is still Python 2 and with distributions ending support for
+  # Python 2 we can only support a limited number of platforms.
   # - name: amazonlinux2
   #   image: amazonlinux:2
   - name: debian9
