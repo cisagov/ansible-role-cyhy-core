@@ -70,7 +70,7 @@ the repository's settings.
 
 - [cisagov/ansible-role-geoip2](https://github.com/cisagov/ansible-role-geoip2)
 - [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
-- [cisagov/ansible-role-python2](https://github.com/cisagov/ansible-role-python2)
+- [cisagov/ansible-role-python](https://github.com/cisagov/ansible-role-python)
 
 ## Example Playbook ##
 
