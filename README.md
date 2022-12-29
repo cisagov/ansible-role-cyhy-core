@@ -1,8 +1,7 @@
 # ansible-role-cyhy-core #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-cyhy-core/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-core/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-cyhy-core.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-core/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cyhy-core.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-core/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-cyhy-core/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-core/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing
 [cyhy-core](https://github.com/cisagov/cyhy-core).
@@ -71,6 +70,7 @@ the repository's settings.
 
 - [cisagov/ansible-role-geoip2](https://github.com/cisagov/ansible-role-geoip2)
 - [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
+- [cisagov/ansible-role-python](https://github.com/cisagov/ansible-role-python)
 
 ## Example Playbook ##
 
@@ -80,8 +80,10 @@ Here's how to use it in a playbook:
 - hosts: all
   become: yes
   become_method: sudo
-  roles:
-    - cyhy_core
+  tasks:
+    - name: Install cisagov/cyhy-core
+      ansible.builtin.include_role:
+        name: cyhy_core
 ```
 
 ## Contributing ##
