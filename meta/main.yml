@@ -1,8 +1,19 @@
 ---
+dependencies:
+  - src: https://github.com/cisagov/ansible-role-geoip2
+    name: geoip2
+  - src: https://github.com/cisagov/ansible-role-pip
+    name: pip
+    vars:
+      install_pip2: true
+  - src: https://github.com/cisagov/ansible-role-python
+    name: python
+    vars:
+      install_python2: true
 galaxy_info:
   author: Shane Frasier
-  description: Install cyhy-core.
   company: CISA Cyber Assessments
+  description: Install cyhy-core.
   galaxy_tags:
     - cyhy
     - core
@@ -25,15 +36,3 @@ galaxy_info:
       versions:
         - bionic
   role_name: cyhy_core
-
-dependencies:
-  - src: https://github.com/cisagov/ansible-role-geoip2
-    name: geoip2
-  - src: https://github.com/cisagov/ansible-role-pip
-    name: pip
-    vars:
-      install_pip2: true
-  - src: https://github.com/cisagov/ansible-role-python
-    name: python
-    vars:
-      install_python2: true
