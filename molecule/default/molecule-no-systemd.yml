@@ -18,8 +18,8 @@ lint: |
 platforms:
   # cyhy-core is still Python 2 and with distributions ending support for
   # Python 2 we can only support a limited number of platforms.
-  # - image: amazonlinux:2
-  #   name: amazonlinux2
+  # - image: amazonlinux:2023
+  #   name: amazonlinux2023
   #   platform: amd64
   - image: debian:buster-slim
     name: debian10
