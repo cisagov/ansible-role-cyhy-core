@@ -31,7 +31,4 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-    - name: Ubuntu
-      versions:
-        - bionic
   role_name: cyhy_core
