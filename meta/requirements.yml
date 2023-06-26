@@ -1,0 +1,5 @@
+---
+collections: []
+roles:
+  - src: https://github.com/cisagov/ansible-role-geoip2
+    name: geoip2
