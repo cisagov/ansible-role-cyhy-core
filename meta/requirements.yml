@@ -1,6 +1,11 @@
 ---
-collections: []
-roles:
-  - name: geoip2
-    src: https://github.com/cisagov/ansible-role-geoip2
-    version: lineage/skeleton
+# Here we must remove the collections and roles dictionaries so that
+# the YAML file is an array.  This is because ansible-galaxy munges
+# together the contents of meta/requirements.yml and the dependencies
+# entry of meta/main.yml, so they must be of the same type (list
+# vs. dict).  ansible-lint does not allow for collections and roles
+# subentries under the dependencies attribute, so this is the course
+# we must take.
+- name: geoip2
+  src: https://github.com/cisagov/ansible-role-geoip2
+  version: lineage/skeleton
