@@ -8,4 +8,3 @@
 # we must take.
 - name: geoip2
   src: https://github.com/cisagov/ansible-role-geoip2
-  version: lineage/skeleton
