@@ -1,5 +1,9 @@
 ---
-# tasks file for cyhy_core
+- name: Install GeoIP2
+  ansible.builtin.include_role:
+    name: geoip2
+  vars:
+    geoip2_maxmind_license_key: "{{ cyhy_core_maxmind_license_key }}"
 
 - name: Install system versions of the Python packages that cyhy-core needs
   ansible.builtin.package:

@@ -64,7 +64,7 @@ the repository's settings.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| maxmind_license_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
+| cyhy_core_maxmind_license_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
 
 ## Dependencies ##
 
@@ -106,4 +106,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-Shane Frasier - <jeremy.frasier@trio.dhs.gov>
+Shane Frasier - <jeremy.frasier@gwe.cisa.dhs.gov>
