@@ -1,11 +1,16 @@
 ---
+# Note that dependencies listed here are automatically installed
+# before this role.  Role variables for any roles listed here can be
+# assigned static variables.
+#
+# See also cisagov/skeleton-ansible-role#153.
 dependencies:
-  - src: https://github.com/cisagov/ansible-role-pip
-    name: pip
+  - name: pip
+    src: https://github.com/cisagov/ansible-role-pip
     vars:
       pip_install_pip2: true
-  - src: https://github.com/cisagov/ansible-role-python
-    name: python
+  - name: python
+    src: https://github.com/cisagov/ansible-role-python
     vars:
       python_install_python2: true
 galaxy_info:
@@ -30,3 +35,4 @@ galaxy_info:
       versions:
         - buster
   role_name: cyhy_core
+  standalone: true
