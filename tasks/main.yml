@@ -22,6 +22,7 @@
       # version of PyMongo, this should be enabled.
       # - python-pymongo
       - python-six
+      - python-unidecode
       # PyYAML
       - python-yaml
 
