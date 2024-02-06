@@ -24,6 +24,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
         "python-pandas",
         "python-progressbar",
         "python-six",
+        "python-unidecode",
         "python-yaml",
     ],
 )
