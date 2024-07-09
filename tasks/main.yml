@@ -3,6 +3,8 @@
   ansible.builtin.include_role:
     name: geoip2
   vars:
+    geoip2_install_geoipupdate: "{{ cyhy_core_install_geoipupdate }}"
+    geoip2_maxmind_account_id: "{{ cyhy_core_maxmind_account_id }}"
     geoip2_maxmind_license_key: "{{ cyhy_core_maxmind_license_key }}"
 
 - name: Install system versions of the Python packages that cyhy-core needs

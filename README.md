@@ -64,7 +64,9 @@ the repository's settings.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| cyhy_core_maxmind_license_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
+| cyhy\_core\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
+| cyhy\_core\_maxmind\_account\_id | The MaxMind account ID for access to a GeoIP2 database subscription. | n/a | Yes |
+| cyhy\_core\_maxmind\_license\_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
 
 ## Dependencies ##
 
