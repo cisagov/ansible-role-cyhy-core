@@ -1,3 +1,6 @@
 ---
 # This mirrors the default in cisagov/ansible-role-geoip2
 cyhy_core_install_geoipupdate: false
+
+# The version of cisagov/cyhy-core to use; must be a valid git reference
+cyhy_core_version: v1.0.0
