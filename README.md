@@ -111,7 +111,7 @@ the repository's settings.
 | cyhy\_core\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
 | cyhy\_core\_maxmind\_account\_id | The MaxMind account ID for access to a GeoIP2 database subscription. | n/a | Yes |
 | cyhy\_core\_maxmind\_license\_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
-| cyhy\_core\_version | The version of cisagov/cyhy-core to install; must be a valid git reference. | `v1.1.8` | No |
+| cyhy\_core\_version | The version of cisagov/cyhy-core to install; must be a valid git reference. | `v1.1.10` | No |
 
 ## Dependencies ##
 
