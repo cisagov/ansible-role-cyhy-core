@@ -1,6 +1,7 @@
 # ansible-role-cyhy-core #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-cyhy-core/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-core/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-role-cyhy-core)](https://spdx.org/licenses/)
 [![CodeQL](https://github.com/cisagov/ansible-role-cyhy-core/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-core/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing
