@@ -102,8 +102,7 @@ the repository's settings.
 
 ## Requirements ##
 
-- The [boto3](https://pypi.org/project/boto3/) Python package for performing
-  `lookup()`s of AWS SSM Parameter Store keys.
+None.
 
 ## Role Variables ##
 
