@@ -3,4 +3,6 @@
 cyhy_core_install_geoipupdate: false
 
 # The version of cisagov/cyhy-core to use; must be a valid git reference
+#
+# renovate: datasource=github-releases depName=cisagov/cyhy-core
 cyhy_core_version: v1.3.3
